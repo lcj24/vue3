@@ -49,7 +49,8 @@ export default {
 .header__inner {
     @include flex-between;
     background-color: #444;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
+    opacity: .7;
     padding: 1rem;
 
     .header__logo {
