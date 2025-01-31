@@ -38,8 +38,8 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
+<!--scoped-->
+<style lang="scss" >
 @use "@/assets/scss/mixin" as *;
 
 #header {
@@ -48,7 +48,7 @@ export default {
 }
 .header__inner {
     @include flex-between;
-    background-color: rgba(116, 99, 99, 0.1);
+    background-color: #444;
     backdrop-filter: blur(15px);
     padding: 1rem;
 
@@ -95,11 +95,28 @@ export default {
                     }
                 }
             }
+            &.show + .header__nav__mobile {position: relative;}
+            &.show + .header__nav__mobile span {background-color: transparent;}
             &.show + .header__nav__mobile span::before {
-                width: 20px;
+              position: absolute;left: 0;top: 0;
+              transition: all .4s;box-sizing: border-box;
+              width: 100%;height: 2px;
+              background-color: #fff; border-radius: 4px;
+              /*
+              -webkit-transform: translateY (20px) rotate (-45deg);
+              transform: translateY(20px) rotate(-45deg);
+              */ 
+              transform: rotate(135deg);
             }
             &.show + .header__nav__mobile span::after {
-                width: 20px;
+              position: absolute;left: 0;bottom: 0; background-color: #fff; border-radius: 4px;
+              width: 100%;height: 2px;
+              transition: all .4s;box-sizing: border-box;
+            /*
+              -webkit-transform: translateY(-20px) rotate(45deg);
+              transform: translateY(-20px) rotate(45deg);
+             */ 
+              transform: rotate(-135deg);
             }
         }
         
